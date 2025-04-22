@@ -39,7 +39,7 @@ app.get('/api/books', async (req, res) => {
 app.post('/api/books', async (req, res) => {
   const { title, author, isbn, publication_year, genre } = req.body;
   
-  // Validation
+  
   if (!title || typeof title !== 'string') {
     return res.status(400).json({ error: 'Valid title is required' });
   }
