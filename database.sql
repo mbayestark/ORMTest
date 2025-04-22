@@ -1,0 +1,14 @@
+CREATE DATABASE book_management;
+USE book_management;
+
+CREATE TABLE books (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    isbn VARCHAR(17) UNIQUE NOT NULL,
+    publication_year INT,
+    genre VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
