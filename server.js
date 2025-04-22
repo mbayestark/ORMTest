@@ -60,10 +60,15 @@ app.post('/api/books', async (req, res) => {
       isbn, 
       publication_year: publication_year || null, 
       genre: genre || null 
-    }).returning();
+    })
     
-    res.status(201).json(newBook);
+    res.status(201).json({
+      message: 'Book created',
+      book: newBook
+    });
+    
   } catch (err) {
+    console.error("Insert error:", err);
     if (err.errno === 1062) {
       return res.status(409).json({ error: 'Book with this ISBN already exists' });
     }
